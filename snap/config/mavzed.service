@@ -1,0 +1,13 @@
+[Unit]
+Description=MAVZED daemon
+
+[Service]
+Type=notify
+ExecStart=/usr/local/bin/mavzed
+Restart=on-failure
+RestartSec=10s
+TimeoutStartSec=30s
+TimeoutStopSec=30s
+
+[Install]
+WantedBy=multi-user.target

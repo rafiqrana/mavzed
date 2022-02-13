@@ -1,0 +1,7 @@
+# ignore the following folders
+dist/*
+mavzed.egg-info/*
+
+# ignore all files anywhere having the following extension
+**/*.snap
+**/*.pyc

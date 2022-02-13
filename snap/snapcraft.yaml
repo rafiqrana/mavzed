@@ -1,0 +1,21 @@
+name: mavzed
+version: '1.0.0'
+summary: mavzed
+description: |
+  ZED camera controller
+base: core18
+grade: stable
+confinement: strict
+
+architectures:
+  - build-on: [amd64, arm64]
+    run-on: [amd64, arm64]
+
+parts:
+  mavzed:
+    plugin: python
+    source: .
+
+apps:
+  mavzed:
+    command: mavzed
