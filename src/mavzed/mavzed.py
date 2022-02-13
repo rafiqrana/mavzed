@@ -4,8 +4,9 @@ import logging
 
 import pyzed.sl as sl
 
+
 class Mavzed:
-    def __init__(self) -> None:
+    def __init__(self, config) -> None:
 
         self.frame_count = 0
 
@@ -15,8 +16,8 @@ class Mavzed:
         self.init_param.depth_mode = sl.DEPTH_MODE.NONE
 
         self.runtime_param = sl.RuntimeParameters()
-
-        self.file_path = "/home/nito/Desktop/SVO-Recording/%Y%m%d-%H%M%S.svo"
+        self.svo_path = config['SVO_CONFIG']['svo_record_directory'] + \
+            '%Y%m%d-%H%M%S.svo'
 
         self.recording_status = sl.RecordingStatus()
         self.error_code = 0
@@ -40,7 +41,7 @@ class Mavzed:
 
     def start(self):
         if not self.recording_status.is_recording:
-            filename = time.strftime(self.file_path)
+            filename = time.strftime(self.svo_path)
             recording_param = sl.RecordingParameters(
                 filename, sl.SVO_COMPRESSION_MODE.H264)
             self.error_code = self.camera.enable_recording(recording_param)

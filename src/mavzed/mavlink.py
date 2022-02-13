@@ -1,5 +1,6 @@
 import logging
 from pymavlink import mavutil
+from configparser import ConfigParser
 
 class ZED:
     class RECORDING:
@@ -17,13 +18,13 @@ class COMMAND:
     RECORDING = 'RECORDING'
 
 
-class Mavlink():
-    def __init__(self) -> None:
+class Mavlink:
+    def __init__(self, config) -> None:
 
-        self.cam_power_channel = 'chan8_raw'
-        self.cam_record_channel = 'chan7_raw'
+        self.cam_power_channel = config['RC_CHANNEL']['cam_power_channel']
+        self.cam_record_channel = config['RC_CHANNEL']['cam_record_channel']
 
-        self.device_path = '/dev/ttyACM0'
+        self.device_path = config['DEVICE_CONFIG']['device_path']
 
         self.mav = mavutil.mavlink_connection(self.device_path)
         self.mav.wait_heartbeat()

@@ -1,4 +1,5 @@
-import os, sys, time, logging
+import configparser
+import os, sys, time
 
 current_dir = os.path.dirname(os.path.realpath(__file__))
 parent_dir = os.path.dirname(current_dir)
@@ -8,10 +9,14 @@ from src.mavzed.mavlink import COMMAND, ZED, Mavlink
 from src.mavzed.mavzed import Mavzed
 from signal import signal, SIGINT
 
+config = configparser.ConfigParser()
+config.read('config/config.ini')
+
 def main():
+
     try:
-        mavlink = Mavlink()
-        mavzed = Mavzed()
+        mavlink = Mavlink(config)
+        mavzed = Mavzed(config)
 
         while True:
             time.sleep(0.02)
