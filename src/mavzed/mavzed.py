@@ -16,8 +16,7 @@ class Mavzed:
         self.init_param.depth_mode = sl.DEPTH_MODE.NONE
 
         self.runtime_param = sl.RuntimeParameters()
-        self.svo_path = config['SVO_CONFIG']['svo_record_directory'] + \
-            '%Y%m%d-%H%M%S.svo'
+        self.svo_path = config['SVO_CONFIG']['svo_record_directory']
 
         self.recording_status = sl.RecordingStatus()
         self.error_code = 0
@@ -41,7 +40,7 @@ class Mavzed:
 
     def start(self):
         if not self.recording_status.is_recording:
-            filename = time.strftime(self.svo_path)
+            filename = time.strftime(self.svo_path + '%Y%m%d-%H%M%S.svo')
             recording_param = sl.RecordingParameters(
                 filename, sl.SVO_COMPRESSION_MODE.H264)
             self.error_code = self.camera.enable_recording(recording_param)
