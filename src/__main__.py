@@ -16,7 +16,7 @@ logging.basicConfig(level=logging.INFO,
                     format="%(asctime)s:%(levelname)s:%(message)s")
 
 config = configparser.ConfigParser()
-config.read('config/config.ini')
+config.read('/home/nito/git/repos/mavzed/config/config.ini')
 
 def main():
 
