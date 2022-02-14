@@ -2,7 +2,7 @@ name: mavzed
 version: '1.0.0'
 summary: mavzed
 description: |
-  ZED camera controller
+  MavZED routine handler application
 base: core18
 grade: stable
 confinement: strict
