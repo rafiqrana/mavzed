@@ -15,7 +15,10 @@ parts:
   mavzed:
     plugin: python
     source: .
+    requirements: [ 'requirements.txt' ]
 
 apps:
   mavzed:
     command: mavzed
+    daemon: simple
+    restart-condition: always

@@ -1,1 +1,1 @@
-pyzed == 3.6
+pymavlink>=2.4.19
