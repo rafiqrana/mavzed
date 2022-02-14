@@ -2,7 +2,7 @@
 
 import configparser
 import os, sys, time
-import traceback
+import traceback,logging
 
 current_dir = os.path.dirname(os.path.realpath(__file__))
 parent_dir = os.path.dirname(current_dir)
@@ -12,10 +12,15 @@ from src.mavzed.mavlink import COMMAND, ZED, Mavlink
 from src.mavzed.mavzed import Mavzed
 from signal import signal, SIGINT
 
+logging.basicConfig(level=logging.INFO,
+                    format="%(asctime)s:%(levelname)s:%(message)s")
+
 config = configparser.ConfigParser()
 config.read('config/config.ini')
 
 def main():
+
+    logging.info('  MavZED has been started!')
 
     try:
         mavzed = Mavzed(config)
