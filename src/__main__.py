@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import os, sys, time, logging
 
 current_dir = os.path.dirname(os.path.realpath(__file__))
