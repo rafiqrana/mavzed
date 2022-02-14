@@ -4,7 +4,7 @@ After=multi-user.target
 
 [Service]
 Type=notify
-ExecStart=/usr/bin/python3 /home/nito/git/repos/mavzed/src/__main__.py
+ExecStart=/usr/local/bin/mavzed
 Restart=on-failure
 RestartSec=10s
 TimeoutStartSec=30s
