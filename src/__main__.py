@@ -1,7 +1,8 @@
-#!/usr/bin/python3
+# !/usr/bin/python3
 
 import configparser
 import os, sys, time
+import traceback
 
 current_dir = os.path.dirname(os.path.realpath(__file__))
 parent_dir = os.path.dirname(current_dir)
@@ -17,8 +18,8 @@ config.read('config/config.ini')
 def main():
 
     try:
-        mavlink = Mavlink(config)
         mavzed = Mavzed(config)
+        mavlink = Mavlink(config)
 
         while True:
             time.sleep(0.02)
@@ -38,8 +39,12 @@ def main():
             elif message[COMMAND.RECORDING] == ZED.RECORDING.PAUSE:
                 mavzed.pause()
                 
-    except Exception as error:
-        print(error)
+    # except Exception as error:
+    #     print(error)
+    #     sys.exit(0)
+
+    except Exception:
+        print(traceback.format_exc())
         sys.exit(0)
 
 if __name__ == "__main__":

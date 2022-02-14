@@ -1,7 +1,7 @@
 import setuptools
 
 # def read_requirements():
-#     with open('requirements.txt', 'r') as rq:
+#     with open('requirements.txt') as rq:
 #         content = rq.read()
 #         req = content.split('\n')
 #     return req
@@ -28,7 +28,7 @@ setuptools.setup(
     ],
     packages=setuptools.find_packages(),
     # include_package_data=True,
-    python_requires=">=3.6",
+    # python_requires=">=3.6",
     # install_requires=read_requirements(),
     entry_points = {
         'console_scripts': ['mavzed=src.__main__:main'],

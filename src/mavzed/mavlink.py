@@ -1,3 +1,4 @@
+import configparser
 import logging
 from pymavlink import mavutil
 from configparser import ConfigParser
@@ -18,8 +19,8 @@ class COMMAND:
     RECORDING = 'RECORDING'
 
 
-class Mavlink:
-    def __init__(self, config) -> None:
+class Mavlink():
+    def __init__(self, config = None) -> None:
 
         self.cam_power_channel = config['RC_CHANNEL']['cam_power_channel']
         self.cam_record_channel = config['RC_CHANNEL']['cam_record_channel']
