@@ -24,4 +24,10 @@ Uninstall snap
 
 ```
 sudo snap uninstall mavzed
+
+
+```
+clean snap temp file
+```
+snapcraft clean
 ```
