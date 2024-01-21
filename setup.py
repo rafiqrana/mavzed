@@ -11,7 +11,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="mavzed",
-    version="0.0.1",
+    version="1.0.0",
     author="Rafiq Rana",
     author_email="rafiq.rana.bd@gmail.com",
     description="A linux service that control and record ZED camera from mav commmd from transmitter",
