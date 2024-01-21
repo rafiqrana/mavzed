@@ -1,11 +1,11 @@
-# ignore the following folders
+# ignore the following folders and whatever content
 dist/*
 mavzed.egg-info/*
 parts/*
 prime/*
 stage/*
 
-# ignore all files anywhere having the following extension
+# ignore files anywhere with following extensions
 **/*.snap
 **/*.pyc
 **/*state
